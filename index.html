@@ -278,6 +278,42 @@
       color: var(--accent-2);
     }
     .currently span.txt { color: var(--text); }
+    .currently a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .currently a:hover { text-decoration: underline; }
+
+    /* ---------- Experience ---------- */
+    .timeline {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: 1.25rem;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .exp-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .exp-period { color: var(--faint); font-size: 0.85rem; font-weight: 500; padding-top: 0.2rem; }
+    .exp-body h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.12rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.2rem;
+    }
+    .exp-company { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.7rem; }
+    .exp-company a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .exp-company a:hover { text-decoration: underline; }
+    .exp-body p { font-size: 0.93rem; color: var(--muted); }
+    @media (max-width: 560px) {
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-period { padding-top: 0; }
+    }
 
     .divider { height: 1px; background: var(--border); border: none; }
 
@@ -479,8 +515,9 @@
     <div class="wrap">
       <div class="brand">Kevin<span>.</span>Ma</div>
       <div class="nav-links">
-        <a href="#research">Research</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
@@ -498,7 +535,7 @@
       <p class="tagline reveal">I research foundation models for embodied agents — studying how vision-language-action policies perceive, generalize, and act reliably in the physical world.</p>
       <div class="currently reveal">
         <span class="label">Currently</span>
-        <span><span class="txt">Seattle</span> — building &amp; evaluating VLA systems end-to-end: simulation, data, and efficient inference.</span>
+        <span><span class="txt">Summer 2026</span> — Research Intern at <a href="https://corvinuslabs.io/" target="_blank" rel="noopener">Corvinus Labs</a>, developing multi-modal VLA models &amp; robotic interfaces.</span>
       </div>
       <div class="cta reveal">
         <a class="btn btn-primary" href="https://github.com/Kevinma0215" target="_blank" rel="noopener">
@@ -531,6 +568,22 @@
         <span class="tag">TensorRT-LLM</span>
         <span class="tag">Sim-to-Real</span>
         <span class="tag">LeRobot</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <div class="wrap">
+      <p class="eyebrow reveal">Experience</p>
+      <div class="timeline">
+        <article class="exp-item reveal">
+          <div class="exp-period">Summer 2026</div>
+          <div class="exp-body">
+            <h3>Research Intern — VLA &amp; Robotics</h3>
+            <div class="exp-company"><a href="https://corvinuslabs.io/" target="_blank" rel="noopener">Corvinus Labs</a></div>
+            <p>Working directly alongside the core engineering team to develop multi-modal vision-language-action (VLA) models, design and test robotic interfaces, and contribute to physical hardware prototyping — hands-on, AI-driven automation within a real-world wet-lab development cycle.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
