@@ -562,11 +562,11 @@
     <div class="wrap">
       <p class="eyebrow reveal">About</p>
       <p class="reveal">My work sits at the intersection of <strong>foundation models</strong> and <strong>embodied intelligence</strong>. I study how <strong>vision-language-action (VLA)</strong> models can be trained, evaluated, and made reliable enough to control real robots — with a particular focus on understanding <em>where and why</em> these policies break down before trusting them in the physical world.</p>
-      <p class="reveal">I work across the full pipeline: generating training data in simulation with <strong>NVIDIA Isaac Sim</strong>, benchmarking VLA policies under realistic distribution shift, and making large vision-language models efficient enough to deploy through quantization and inference optimization. I care as much about rigorous, reproducible evaluation as I do about headline results.</p>
+      <p class="reveal">I work across the full pipeline: generating training data in simulation with <strong>NVIDIA Isaac Lab</strong>, benchmarking VLA policies under realistic distribution shift, and making large vision-language models efficient enough to deploy through quantization and inference optimization. I care as much about rigorous, reproducible evaluation as I do about headline results.</p>
       <div class="tags reveal">
         <span class="tag">Foundation Models</span>
         <span class="tag">Vision-Language-Action</span>
-        <span class="tag">NVIDIA Isaac Sim</span>
+        <span class="tag">NVIDIA Isaac Lab</span>
         <span class="tag">Robot Learning</span>
         <span class="tag">Model Quantization</span>
         <span class="tag">TensorRT-LLM</span>
@@ -599,30 +599,33 @@
       <p class="reveal" style="color:var(--muted);max-width:54ch;">Three threads of my foundation-model robotics work — from generating data in simulation, to stress-testing policies, to making large models efficient to run.</p>
 
       <div class="work-grid">
-        <!-- Isaac Sim -->
+        <!-- sim2act -->
         <article class="card reveal">
           <div class="card-media">
             <div class="pipeline">
-              <div class="node">Isaac Sim — Franka pick</div>
+              <div class="node">Oracle &mdash; state machine + PPO teacher</div>
               <div class="arrow">&#8595;</div>
-              <div class="node">Camera + state machine</div>
+              <div class="node">Multimodal capture &mdash; RGB-D, wrist, forces</div>
               <div class="arrow">&#8595;</div>
-              <div class="node">HDF5 &rarr; LeRobot</div>
+              <div class="node">HDF5 &rarr; LeRobot v3.0</div>
+              <div class="arrow">&#8595;</div>
+              <div class="node">ACT policy + closed-loop eval</div>
             </div>
           </div>
           <div class="card-body">
-            <span class="pillar">Isaac Sim</span>
-            <h3>VLA Data-Collection Environment</h3>
-            <p>A custom NVIDIA Isaac Sim environment for generating VLA training data — a Franka arm pick task with camera input and state-machine control, recording episodes and exporting them from HDF5 to LeRobot format.</p>
-            <span class="metric">Franka pick &middot; HDF5 &rarr; LeRobot</span>
+            <span class="pillar">Isaac Lab</span>
+            <h3>sim2act — VLA Data Flywheel</h3>
+            <p>A full sim-to-action pipeline in NVIDIA Isaac Lab: deterministic Warp state machines and a PPO teacher (4096 parallel envs) generate Franka pick, barrier, and push demonstrations; multimodal streams (overhead RGB-D, wrist RGB, joint kinematics, contact forces) are recorded and converted from HDF5 to LeRobot v3.0, then used to train ACT policies under rigorous closed-loop evaluation with camera ablations and out-of-distribution tests.</p>
+            <span class="metric">Barrier 90% (&gt;75% oracle) &middot; diagnosed a 0% push policy's camera shortcut</span>
             <div class="tags">
-              <span class="tag">Isaac Sim</span>
+              <span class="tag">Isaac Lab</span>
               <span class="tag">Franka</span>
-              <span class="tag">Data Pipeline</span>
-              <span class="tag">LeRobot</span>
+              <span class="tag">PPO Teacher</span>
+              <span class="tag">LeRobot v3.0</span>
+              <span class="tag">ACT</span>
             </div>
             <div class="card-links">
-              <a href="https://github.com/Kevinma0215/Isaac_sim" target="_blank" rel="noopener">Code &rarr;</a>
+              <a href="https://github.com/Kevinma0215/sim2act" target="_blank" rel="noopener">Code &rarr;</a>
             </div>
           </div>
         </article>
