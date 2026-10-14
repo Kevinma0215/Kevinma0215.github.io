@@ -535,7 +535,7 @@
       <p class="tagline reveal">I research foundation models for embodied agents — studying how vision-language-action policies perceive, generalize, and act reliably in the physical world.</p>
       <div class="currently reveal">
         <span class="label">Currently</span>
-        <span><span class="txt">Summer 2026</span> — Research Intern at <a href="https://corvinuslabs.io/" target="_blank" rel="noopener">Corvinus Labs</a>, developing multi-modal VLA models &amp; robotic interfaces.</span>
+        <span><span class="txt">Since Sep 2026</span> — Research Assistant, Robot Learning Lab at the <a href="https://www.cs.washington.edu/" target="_blank" rel="noopener">UW Allen School</a>, studying diffusion-based approaches to covariate shift in robot RL.</span>
       </div>
       <div class="cta reveal">
         <a class="btn btn-primary" href="https://github.com/Kevinma0215" target="_blank" rel="noopener">
@@ -562,12 +562,14 @@
     <div class="wrap">
       <p class="eyebrow reveal">About</p>
       <p class="reveal">My work sits at the intersection of <strong>foundation models</strong> and <strong>embodied intelligence</strong>. I study how <strong>vision-language-action (VLA)</strong> models can be trained, evaluated, and made reliable enough to control real robots — with a particular focus on understanding <em>where and why</em> these policies break down before trusting them in the physical world.</p>
-      <p class="reveal">I work across the full pipeline: generating training data in simulation with <strong>NVIDIA Isaac Lab</strong>, benchmarking VLA policies under realistic distribution shift, and making large vision-language models efficient enough to deploy through quantization and inference optimization. I care as much about rigorous, reproducible evaluation as I do about headline results.</p>
+      <p class="reveal">I'm an M.S. student in Mechanical Engineering (Data Science) at the <strong>University of Washington</strong>. I work across the full pipeline: generating training data in simulation with <strong>NVIDIA Isaac Lab</strong>, benchmarking VLA policies under realistic distribution shift, and making large vision-language models efficient enough to deploy through quantization and inference optimization. I care as much about rigorous, reproducible evaluation as I do about headline results.</p>
       <div class="tags reveal">
         <span class="tag">Foundation Models</span>
         <span class="tag">Vision-Language-Action</span>
         <span class="tag">NVIDIA Isaac Lab</span>
         <span class="tag">Robot Learning</span>
+        <span class="tag">Diffusion Policy</span>
+        <span class="tag">Reinforcement Learning</span>
         <span class="tag">Model Quantization</span>
         <span class="tag">TensorRT-LLM</span>
         <span class="tag">Sim-to-Real</span>
@@ -581,11 +583,19 @@
       <p class="eyebrow reveal">Experience</p>
       <div class="timeline">
         <article class="exp-item reveal">
-          <div class="exp-period">Summer 2026</div>
+          <div class="exp-period">Sep 2026 – Present</div>
           <div class="exp-body">
-            <h3>Research Intern — VLA &amp; Robotics</h3>
+            <h3>Research Assistant</h3>
+            <div class="exp-company">Robot Learning Lab, <a href="https://www.cs.washington.edu/" target="_blank" rel="noopener">UW Paul G. Allen School of CSE</a></div>
+            <p>Investigating diffusion-based approaches to address covariate shift in reinforcement learning for robotic manipulation.</p>
+          </div>
+        </article>
+        <article class="exp-item reveal">
+          <div class="exp-period">Jun – Aug 2026</div>
+          <div class="exp-body">
+            <h3>Robot Learning Research Intern · Robotics Systems Team Lead</h3>
             <div class="exp-company"><a href="https://corvinuslabs.io/" target="_blank" rel="noopener">Corvinus Labs</a></div>
-            <p>Working directly alongside the core engineering team to develop multi-modal vision-language-action (VLA) models, design and test robotic interfaces, and contribute to physical hardware prototyping — hands-on, AI-driven automation within a real-world wet-lab development cycle.</p>
+            <p>Architected an end-to-end robot learning research platform connecting Isaac Sim, LeRobot data pipelines, policy training, and closed-loop evaluation. Across four data-scaling configurations (200 episodes each), showed that offline action metrics failed to predict closed-loop success. Traced a 43% closed-loop abort rate to infeasible IK rotations, informing an SE(3) backtracking fix that lifted task success from 58% to 73%. Built a unified sim-to-hardware interface for a 6-DoF arm, cutting trajectory replay error from 10.0&nbsp;mm to 3.4&nbsp;mm.</p>
           </div>
         </article>
       </div>
@@ -638,8 +648,8 @@
           <div class="card-body">
             <span class="pillar">VLA</span>
             <h3>Manipulation Robustness Under Distribution Shift</h3>
-            <p>How well do VLA policies hold up when the robot starts somewhere new? I benchmark a monolithic SmolVLA policy against a hierarchical Gemini&#8202;+&#8202;IK system on tabletop pick-and-place in MuJoCo, across controlled spatial shifts in the initial pose.</p>
-            <span class="metric">Degrades beyond ~10&nbsp;cm offset &middot; 4 shift conditions</span>
+            <p>How well do VLA policies hold up when the robot starts somewhere new? I benchmark a monolithic SmolVLA policy against a hierarchical Gemini&#8202;+&#8202;IK system with explicit 3D grounding on tabletop pick-and-place in MuJoCo, systematically perturbing the initial end-effector pose.</p>
+            <span class="metric">SmolVLA 90% &rarr; 20% at 10&nbsp;cm shift &middot; hierarchical holds 80%</span>
             <div class="tags">
               <span class="tag">SmolVLA</span>
               <span class="tag">Gemini</span>
@@ -660,8 +670,8 @@
           <div class="card-body">
             <span class="pillar">Quantization</span>
             <h3>Quantizing Qwen2-VL on TensorRT-LLM</h3>
-            <p>A failure-mode study of LLM quantization applied to a vision-language model. Standard FP8 saturates the visual-token KV cache and collapses accuracy; SmoothQuant (W8A8) is Pareto-optimal — roughly 2&times; faster while retaining accuracy.</p>
-            <span class="metric">&asymp;2&times; speedup &middot; 7 configs evaluated</span>
+            <p>A failure-mode study of LLM quantization applied to a vision-language model, benchmarked on VQAv2, POPE, and MME. Controlled ablations isolate FP8 KV-cache quantization as the source of an 8.8-point VQAv2 regression; SmoothQuant (W8A8) is Pareto-optimal — roughly 2&times; faster while retaining accuracy.</p>
+            <span class="metric">&asymp;2&times; speedup &middot; 7 configs &middot; FP8 KV-cache &minus;8.8 pts</span>
             <div class="tags">
               <span class="tag">Qwen2-VL</span>
               <span class="tag">TensorRT-LLM</span>
